@@ -1,8 +1,13 @@
-import Home from './features/home/Home';
-
+import AppRoutes from "./routes/AppRoutes";
+import TabMenu from "./components/tab-menu/TabMenu";
 
 export default function App() {
   return (
-    <Home/>
+    <>
+      <main>
+        <AppRoutes />
+      </main>
+      <TabMenu />
+    </>
   );
 }
