@@ -1,4 +1,5 @@
 import NewDeckBtn from "../../components/new-deck-btn/NewDeckBtn";
+import "./home.css"
 
 export default function Home  ()  {
   return (
