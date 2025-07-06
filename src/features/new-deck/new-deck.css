@@ -25,6 +25,14 @@
 .new-deck__card__information p {
     margin: 0 10px;
 }
+.new-deck__save {
+    text-align: center;
+}
+.new-deck__save button {
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+}
 
 @media (min-width: 920px) {
     .new-deck__input,

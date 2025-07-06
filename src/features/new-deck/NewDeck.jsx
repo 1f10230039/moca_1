@@ -1,15 +1,39 @@
+import React, { useState } from "react";
 import "./new-deck.css"
 import NewCardBtn from "../../components/new-card-btn/NewDeckBtn";
 
 export default function NewDeck () {
+    const [deckTitle, setDeckTitle] = useState("");
+    const [deckTag, setDeckTag] = useState("");
+    const handleSaveDeck = () => {
+        const existingDecks = JSON.parse(localStorage.getItem("decks")) || [];
+        const newDeck = {
+            id: Date.now(),
+            title: deckTitle,
+            tag: deckTag,
+            cards: []
+        };
+        const updateDecks = [...existingDecks,newDeck];
+        localStorage.setItem("decks", JSON.stringify(updateDecks));
+        console.log("保存されたデッキ一覧:", updateDecks)
+        setDeckTitle("");
+        setDeckTag("");
+    };
     return (
         <>
             <section className="new-deck">
                 <section className="new-deck__input">
                     <h2>デッキ名</h2>
-                    <input type="text" placeholder="デッキ名を入力してください" />
+                    <input type="text" 
+                        placeholder="デッキ名を入力してください"
+                        value={deckTitle}
+                        onChange={(e) => setDeckTitle(e.target.value)}
+                    />
                     <h2>タグ</h2>
-                    <input type="text" placeholder="タグを入力してください" />
+                    <input type="text" 
+                        placeholder="タグを入力してください"
+                        value={deckTag}
+                        onChange={(e) => setDeckTag(e.target.value)}/>
                 </section>
                 <section className="new-deck__card">
                     <NewCardBtn />
@@ -20,6 +44,9 @@ export default function NewDeck () {
                     <section className="new-deck__card__summary">
                         ここにカード一覧が表示される
                     </section>
+                </section>
+                <section className="new-deck__save">
+                    <button onClick={handleSaveDeck}>保存する</button>
                 </section>
             </section>
         </>

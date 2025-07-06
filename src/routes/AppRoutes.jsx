@@ -12,6 +12,7 @@ export default function AppRoutes() {
             <Route path="decks" element={<Decks />}></Route>
             <Route path="setting" element={<Setting />}></Route>
             <Route path="new-deck" element={<NewDeck />}></Route>
+            <Route path="decks/new-deck" element={<NewDeck />}></Route>
             <Route path="new-deck/new-card" element={<NewCard />}></Route>
         </Routes>
     );
