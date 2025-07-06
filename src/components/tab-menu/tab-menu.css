@@ -1,0 +1,14 @@
+.tab-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #F9F9F9;
+}
+.tab-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.tab-menu a {
+    text-decoration: none;
+}

@@ -4,7 +4,7 @@ import TabMenu from "./components/tab-menu/TabMenu";
 export default function App() {
   return (
     <>
-      <main>
+      <main className="app-main">
         <AppRoutes />
       </main>
       <TabMenu />

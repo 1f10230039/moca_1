@@ -1,8 +1,22 @@
+import { Link } from "react-router-dom";
+import "./tab-menu.css"
+
 export default function TabMenu () {
     return (
         <>
-            <h1>ようこそ Moca へ！</h1>
-            <p>ここに「今日の目標」や「最近使ったデッキ」などを追加していきます。</p>
+            <section className="tab-menu">
+                <ul>
+                    <li className="tab-menu__item">
+                        <Link to="/">HOME</Link>
+                    </li>
+                    <li className="tab-menu__item">
+                        <Link to="/decks">DECKS</Link>
+                    </li>
+                    <li className="tab-menu__item">
+                        <Link to="setting">SETTING</Link>
+                    </li>
+                </ul>
+            </section>
         </>
     );
 }
