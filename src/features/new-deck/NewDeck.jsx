@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./new-deck.css"
 import NewCardBtn from "../../components/new-card-btn/NewDeckBtn";
+import SaveBtn from "../../components/save-btn/SaveBtn";
 
 export default function NewDeck () {
     const [deckTitle, setDeckTitle] = useState("");
     const [deckTag, setDeckTag] = useState("");
+    const navigate = useNavigate();
+
     const handleSaveDeck = () => {
         const existingDecks = JSON.parse(localStorage.getItem("decks")) || [];
         const newDeck = {
@@ -18,7 +22,10 @@ export default function NewDeck () {
         console.log("保存されたデッキ一覧:", updateDecks)
         setDeckTitle("");
         setDeckTag("");
+
+        navigate("/decks")
     };
+
     return (
         <>
             <section className="new-deck">
@@ -45,9 +52,7 @@ export default function NewDeck () {
                         ここにカード一覧が表示される
                     </section>
                 </section>
-                <section className="new-deck__save">
-                    <button onClick={handleSaveDeck}>保存する</button>
-                </section>
+                <SaveBtn onClick={handleSaveDeck} />
             </section>
         </>
     );

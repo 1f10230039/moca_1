@@ -7,7 +7,7 @@ export default function NewDeckBtn () {
             <section className="new-deck-btn">
                 <Link to="new-deck">
                     <div className="new-deck-btn__item">
-                        <span class="material-symbols-outlined">add_2</span>
+                        <span className="material-symbols-outlined">add_2</span>
                         <span>新しくデッキを作る</span>
                     </div>
                 </Link>

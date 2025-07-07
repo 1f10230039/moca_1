@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
 import "./save-btn.css"
 
-export default function SaveBtn () {
+export default function SaveBtn ({ onClick }) {
     return (
         <>
             <section className="save-btn">
-                <Link to="decks">
-                    <div className="save-btn__item">
-                        <span className="material-symbols-outlined">add_2</span>
-                        <span>保存する</span>
-                    </div>
-                </Link>
+                <button className="save-btn__item" onClick={onClick}>
+                    <span className="material-symbols-outlined">arrow_circle_down</span>
+                    <span>保存する</span>
+                </button>
             </section>
         </>
     );
