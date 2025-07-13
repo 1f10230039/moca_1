@@ -1,4 +1,8 @@
-.save-btn__item {
+.back-btn a {
+    text-decoration: none;
+}
+
+.back-btn__item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +18,7 @@
 }
 
 @media (min-width: 920px) {
-    .save-btn__item {
+    .back-btn__item {
         width: 220px;
         height: 70px;
         font-size: 30px;

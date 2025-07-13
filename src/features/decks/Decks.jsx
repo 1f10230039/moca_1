@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./decks.css";
 import NewDeckBtn from "../../components/new-deck-btn/NewDeckBtn";
+import DeleteBtn from "../../components/delete-btn/deleteBtn";
 
 export default function Decks()  {
   const [decks, setDecks] = useState([]);
@@ -8,6 +9,11 @@ export default function Decks()  {
     const storedDecks = JSON.parse(localStorage.getItem("decks")) || [];
     setDecks(storedDecks);
   },[]);
+  const handleDelete = (id) => {
+    const updateDecks = decks.filter((deck) => deck.id !== id);
+    setDecks(updateDecks);
+    localStorage.setItem("decks", JSON.stringify(updateDecks));
+  };
 
   return (
     <>
@@ -17,7 +23,13 @@ export default function Decks()  {
           <p>まだデッキがありません</p>
         ):(
           <ul>
-            {decks.map}
+            {decks.map((deck) => (
+              <li key={deck.id}>
+                <h2>{deck.title}</h2>
+                <p>#{deck.tag}</p>
+                <DeleteBtn onClick={() => handleDelete(deck.id)}/>
+              </li>
+            ))}
           </ul>
         )} 
       </section>
