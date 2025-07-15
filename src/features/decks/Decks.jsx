@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./decks.css";
 import NewDeckBtn from "../../components/new-deck-btn/NewDeckBtn";
 import DeleteBtn from "../../components/delete-btn/deleteBtn";
+
 
 export default function Decks()  {
   const [decks, setDecks] = useState([]);
@@ -28,6 +30,9 @@ export default function Decks()  {
                 <h2>{deck.title}</h2>
                 <p>#{deck.tag}</p>
                 <DeleteBtn onClick={() => handleDelete(deck.id)}/>
+                  <Link to={`/edit-deck/${deck.id}`}>
+                  <button>編集</button>
+                </Link>
               </li>
             ))}
           </ul>

@@ -3,6 +3,7 @@ import Home from "../features/home/Home";
 import Decks from "../features/decks/Decks";
 import Setting from "../features/setteings/settings";
 import NewDeck from "../features/new-deck/NewDeck";
+import EditDeck from "../components/edit-deck/editDeck";
 
 export default function AppRoutes() {
     return (
@@ -12,6 +13,7 @@ export default function AppRoutes() {
             <Route path="setting" element={<Setting />}></Route>
             <Route path="new-deck" element={<NewDeck />}></Route>
             <Route path="decks/new-deck" element={<NewDeck />}></Route>
+            <Route path="/edit-deck/:id" element={<EditDeck />} />
         </Routes>
     );
 }

@@ -7,7 +7,7 @@ export default function BackBtn () {
             <section className="back-btn">
                 <Link to="/decks">
                     <button className="back-btn__item">
-                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span className="material-symbols-outlined">arrow_back</span>
                     <span>戻る</span>
                 </button>
                 </Link>
