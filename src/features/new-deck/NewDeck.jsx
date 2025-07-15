@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./new-deck.css"
 import SaveBtn from "../../components/save-btn/SaveBtn";
 import BackBtn from "../../components/back-btn/backBtn";
+import CardEditorItem from "../../components/card-editor-item/CardEditorItem";
 
 export default function NewDeck () {
     const [deckTitle, setDeckTitle] = useState("");
     const [deckTag, setDeckTag] = useState("");
+    const [cards, setCards] = useState("");
     const navigate = useNavigate();
 
     const handleSaveDeck = () => {
@@ -15,7 +17,7 @@ export default function NewDeck () {
             id: Date.now(),
             title: deckTitle,
             tag: deckTag,
-            cards: []
+            cards: cards
         };
         const updateDecks = [...existingDecks,newDeck];
         localStorage.setItem("decks", JSON.stringify(updateDecks));
@@ -49,7 +51,25 @@ export default function NewDeck () {
                         <p>5枚</p>
                     </section>
                     <section className="new-deck__card__summary">
-                        ここにカード一覧が表示されます。
+                        <button onClick={() => setCards([...cards, {front:"", back:""}])}>
+                            カードを追加
+                        </button>
+                        {cards.map((card, index) => (
+                            <CardEditorItem 
+                                key={index}
+                                card={card}
+                                index={index}
+                                updateCard={(i, field, value) => {
+                                    const updated = [...cards];
+                                    updated[i][field] = value;
+                                    setCards(updated)
+                                }}
+                                deleteCard={(i) => {
+                                    const updated = cards.filter((_, idx) => idx !== i);
+                                    setCards(updated);
+                                }}
+                            />
+                        ))}
                     </section>
                 </section>
                 <SaveBtn onClick={handleSaveDeck} />
