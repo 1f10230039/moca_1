@@ -16,7 +16,13 @@
     margin: 5px;
     padding: 5px;
 }
+.decks__summary li h2 {
+    font-size: 2.5rem;
+}
 
 @media (min-width: 920px) {
-    
+    .decks__summary ul {
+        width: 800px;
+        margin: 0 auto;
+    }
 }

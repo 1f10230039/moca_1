@@ -29,10 +29,10 @@ export default function Decks()  {
               <li key={deck.id}>
                 <h2>{deck.title}</h2>
                 <p>#{deck.tag}</p>
-                <DeleteBtn onClick={() => handleDelete(deck.id)}/>
                   <Link to={`/edit-deck/${deck.id}`}>
-                  <button>編集</button>
-                </Link>
+                    <button>編集</button>
+                  </Link>
+                  <DeleteBtn onClick={() => handleDelete(deck.id)}/>
               </li>
             ))}
           </ul>
